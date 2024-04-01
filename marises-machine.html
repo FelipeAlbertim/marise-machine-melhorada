@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <div class="titulo">
+        <h1> + Conversor</h1>
+    </div>
+    <div class="conversor">
+        <h2>Digite o valor que deseja converter</h2>
+        <input type="text" id="input_base_original" placeholder="Digite o valor ORIGINAL:" class="inputT"
+            style="width: 200px;">
+            <h3>Selecione a base desse número</h3>
+        <select id="select_base_original" class="inputT">
+            <option value="#">Selecione uma base</option>
+            <option value="10">Decimal</option>
+            <option value="2">Binário</option>
+            <option value="8">Octal</option>
+            <option value="18">Hexadecimal</option>
+        </select> 
+
+        <h3>Converter para:</h3>
+
+        <select id="select_base_final" class="inputT">
+            <option value="#">Selecione uma base</option>
+            <option value="10">Decimal</option>
+            <option value="2">Binário</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+            <option value="5">Ver Todas Conversões</option>
+        </select><br>
+
+        <div class="resultado" id="resultado"></div>
+
+        <button class="btnConverter" onclick="converter()">Converter</button>
+    </div>
+
+    <script>
+        function converter() {
+            var valorOriginal = input_base_original.value;
+            var baseOriginal = select_base_original.value;
+            var devolveDecimal = 0;
+            var baseFinal = select_base_final.value;
+            var valorFinal;
+
+            devolveDecimal = parseInt(valorOriginal, baseOriginal);
+
+            resultado.style.display = 'block'
+
+            if (baseFinal == "10") {
+                devolveDecimal = parseInt(valorOriginal, baseOriginal);
+                resultado.innerHTML = `Decimal: ${devolveDecimal}`
+            } else if (baseFinal == "2") {
+                valorFinal = devolveDecimal.toString(2);
+                resultado.innerHTML = `Binario: ${valorFinal}`
+            } else if (baseFinal == "8") {
+                valorFinal = devolveDecimal.toString(8);
+                resultado.innerHTML = `Octal: ${valorFinal}`
+            } else if (baseFinal == "16") {
+                valorFinal = devolveDecimal.toString(16).toUpperCase();
+                resultado.innerHTML = `Hexa: ${valorFinal}`
+                resultado.style.backgroundColor = `#${valorFinal}`
+            } else if (baseFinal == "5"){
+                devolveDecimal = parseInt(valorOriginal, baseOriginal);
+                resultado.innerHTML = `Decimal: ${devolveDecimal} <br>`
+                valorFinal = devolveDecimal.toString(2);
+                resultado.innerHTML += `Binario: ${valorFinal}<br>`
+                valorFinal = devolveDecimal.toString(8);
+                resultado.innerHTML += `Octal: ${valorFinal}<br>`
+                valorFinal = devolveDecimal.toString(16).toUpperCase();
+                resultado.innerHTML += `Hexa: ${valorFinal}`
+                resultado.style.backgroundColor = `#${valorFinal}`
+            }
+        }
+    </script>
+</body>
+
+</html>

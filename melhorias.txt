@@ -1,0 +1,7 @@
+- A idéia de mudar o fundo da pagina (.svg) conforme o valor em hexadecimal (opcional)
+
+- Colocar a opção de "Ver Todas Conversões" - OK
+
+- Border - OK
+
+- Revisar o tamanho de fonte - OK
